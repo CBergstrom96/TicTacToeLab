@@ -1,7 +1,6 @@
 package org.example;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-import java.util.Scanner;
 
 public class BoardTest {
     @Test
@@ -19,10 +18,10 @@ public class BoardTest {
     }
 
     @Test
-    void boardCorrectlyPlacesXInTopLeft() {
+    void boardCorrectlyPlacesXInTopRight() {
       Board board = new Board();
-      board.setBoardCell(0, 0, 'X');
-      assertEquals('X', board.getBoardCell(0, 0));
+      board.setBoardCell(0, 2, 'X');
+      assertEquals('X', board.getBoardCell(0, 2));
     }
 
     @Test

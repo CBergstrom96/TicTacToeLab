@@ -4,10 +4,14 @@ import java.util.Scanner;
 
 public class Game {
 
-    Scanner in = new Scanner(System.in);
-    Board board = new Board();
-    Player player1 = new Player('X');
-    Player player2 = new Player('O');
+    private Scanner in;
+    private Board board = new Board();
+    private Player player1 = new Player('X');
+    private Player player2 = new Player('O');
+
+    public Game(Scanner in) {
+      this.in = in;
+    }
     
 
     public void playGame() {
@@ -52,6 +56,10 @@ public class Game {
     
           System.out.print("Invalid input. Enter 'y' or 'n': ");
       }
+    }
+
+    public Board getBoard() { //Added this getter to help unit testing
+      return board;
     }
     
 }

@@ -5,19 +5,42 @@ import java.util.Scanner;
 public class Player {
 
     private final char playerSymbol;
+    private String name;
+    private int winCount;
+    private boolean wonGame = false;
     
-    public Player(char playerSymbol) {
+    public Player(char playerSymbol, String name) {
         this.playerSymbol = playerSymbol;
-
+        this.name = name;
+        this.winCount = 0;
     }
 
     public char getPlayerSymbol() {
         return playerSymbol;
     }
 
+    public String getName() { //Added names to players to make the output sheet easier to differentiate
+        return name;
+    }
+
+    public int getWinCount() {
+        return winCount;
+    }
+
+    public void addWin() {
+        this.winCount++;
+    }
+
+    public void hasWonGame() { //Used to temporarily mark the player as winner so Game knows to switch player positions
+        this.wonGame = true;
+    }
+
+    public void resetWinBoolean() { //Resets the boolean so it can be used next game
+        this.wonGame = false;
+    }
 
     public void getNextMove(Board board, Scanner in) {
-        System.out.print("Player " + playerSymbol + ", enter your move (1-9): ");
+        System.out.print("   " + name + ", place your " + playerSymbol + " (1-9): ");
         while(true) {
             String userInput = in.nextLine();
             if(board.isValidMove(userInput)) {
@@ -53,7 +76,7 @@ public class Player {
                     break;
                 } else {
                     board.printBoard();
-                    System.out.print("Invalid input. Player " + playerSymbol + ", Enter an open cell on the board (1-9): ");
+                    System.out.print("Invalid input. " + name + ", Place your " + playerSymbol + " on an open cell on the board (1-9): ");
                 }
         }
     }

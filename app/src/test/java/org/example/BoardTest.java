@@ -80,5 +80,13 @@ public class BoardTest {
       Board board = new Board();
       assertTrue(board.isValidMove("1"));
     }
+
+    @Test
+    void clearBoardClearsBoard() {
+      Board board = new Board();
+      board.setBoardCell(0, 0, 'X');
+      board.clear();
+      assertEquals('1', board.getBoardCell(0, 0));
+    }
     
 }

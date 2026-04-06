@@ -6,8 +6,8 @@ import java.util.Scanner;
 public class PlayerTest {
     @Test
     void getPlayerSymbolFunctionWorks() {
-        Player player1 = new Player('X');
-        Player player2 = new Player('O');
+        Player player1 = new Player('X', "Joe");
+        Player player2 = new Player('O', "Jane");
         assertEquals('X', player1.getPlayerSymbol());
         assertEquals('O', player2.getPlayerSymbol());
     }
@@ -15,8 +15,9 @@ public class PlayerTest {
     @Test
     void getPlayerMovePlacesValidMoveCorrectly() {
         Board board = new Board();
-        Player player1 = new Player('X');
-        Player player2 = new Player('O');
+        Player player1 = new Player('X', "Joe");
+        @SuppressWarnings("unused")
+        Player player2 = new Player('O', "Jane");
         assertEquals('1', board.getBoardCell(0, 0));
         String testInput = "1";
         Scanner in = new Scanner(testInput);

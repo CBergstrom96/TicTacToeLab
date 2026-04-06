@@ -1,0 +1,4 @@
+Gameplay session results:
+Joe has: 1 wins
+Jan has: 1 wins
+There were 1 ties.

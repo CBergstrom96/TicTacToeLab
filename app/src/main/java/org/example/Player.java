@@ -7,12 +7,13 @@ public class Player {
     private final char playerSymbol;
     private String name;
     private int winCount;
-    private boolean wonGame = false;
+    private boolean wonGame;
     
     public Player(char playerSymbol, String name) {
         this.playerSymbol = playerSymbol;
         this.name = name;
         this.winCount = 0;
+        this.wonGame = false;
     }
 
     public char getPlayerSymbol() {
@@ -39,7 +40,7 @@ public class Player {
         this.wonGame = false;
     }
 
-    public void getNextMove(Board board, Scanner in) {
+    public void getNextMove(Board board, Scanner in) { //My partner suggested I change this, but I decided not to because I got the idea from the video guide from portfolio 1.
         System.out.print("   " + name + ", place your " + playerSymbol + " (1-9): ");
         while(true) {
             String userInput = in.nextLine();

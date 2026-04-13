@@ -43,7 +43,7 @@ public class Game {
           break;
         }
 
-        if(board.hasTie(startingPlayer.getPlayerSymbol(), endingPlayer.getPlayerSymbol())) {   //I put the tie check here because player 1 always goes last in a tie.
+        if(board.hasTie(startingPlayer.getPlayerSymbol(), endingPlayer.getPlayerSymbol())) {   //I put the tie check here because startingPlayer always goes last in a tie.
             System.out.println("            It's a tie!");
             tieCount++;
             break;

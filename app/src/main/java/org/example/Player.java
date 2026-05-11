@@ -2,7 +2,7 @@ package org.example;
 
 import java.util.Scanner;
 
-public class Player {
+public abstract class Player { //I abstracted this class because the only difference between a human and robot player is the getNextMove function.
 
     private final char playerSymbol;
     private String name;
@@ -40,46 +40,7 @@ public class Player {
         this.wonGame = false;
     }
 
-    public void getNextMove(Board board, Scanner in) { //My partner suggested I change this, but I decided not to because I got the idea from the video guide from portfolio 1.
-        System.out.print("   " + name + ", place your " + playerSymbol + " (1-9): ");
-        while(true) {
-            String userInput = in.nextLine();
-            if(board.isValidMove(userInput)) {
-                switch(userInput) {
-                    case "1":
-                        board.setBoardCell(0, 0, playerSymbol);
-                        break;
-                    case "2":
-                        board.setBoardCell(0, 1, playerSymbol);
-                        break;
-                    case "3":
-                        board.setBoardCell(0, 2, playerSymbol);
-                        break;
-                    case "4":
-                        board.setBoardCell(1, 0, playerSymbol);
-                        break;
-                    case "5":
-                        board.setBoardCell(1, 1, playerSymbol);
-                        break;
-                    case "6":
-                        board.setBoardCell(1, 2, playerSymbol);
-                        break;
-                    case "7":
-                        board.setBoardCell(2, 0, playerSymbol);
-                        break;
-                    case "8":
-                        board.setBoardCell(2, 1, playerSymbol);
-                        break;
-                    case "9":
-                        board.setBoardCell(2, 2, playerSymbol);
-                        break;
-                    }
-                    break;
-                } else {
-                    board.printBoard();
-                    System.out.print("Invalid input. " + name + ", Place your " + playerSymbol + " on an open cell on the board (1-9): ");
-                }
-        }
-    }
+    public abstract void getNextMove(Board board, Scanner in);
+        
 
 }

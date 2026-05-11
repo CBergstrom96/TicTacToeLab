@@ -7,24 +7,24 @@ import java.util.Scanner;
 public class GameTest {
     @Test
     void playAgainReturnsTrueForY() {
-      Player player1 = new Player('X', "Joe");
-      Player player2 = new Player('O', "Jane");
+      Player player1 = new HumanPlayer('X', "Joe");
+      Player player2 = new HumanPlayer('O', "Jane");
       Scanner in = new Scanner("Y");
       Game game = new Game(in, player1, player2);
       assertTrue(game.playAgain());
     }
     @Test
     void playAgainReturnsFalseForN() {
-      Player player1 = new Player('X', "Joe");
-      Player player2 = new Player('O', "Jane");
+      Player player1 = new HumanPlayer('X', "Joe");
+      Player player2 = new HumanPlayer('O', "Jane");
       Scanner in = new Scanner("N");
       Game game = new Game(in, player1, player2);
       assertFalse(game.playAgain());
     }
     @Test
     void validMoveHandlesInvalidInputsAndThenReturnsTrue() {
-        Player player1 = new Player('X', "Joe");
-        Player player2 = new Player('O', "Jane");
+        Player player1 = new HumanPlayer('X', "Joe");
+        Player player2 = new HumanPlayer('O', "Jane");
         Scanner in = new Scanner("8\n%\nY");
         Game game = new Game(in, player1, player2);
         assertTrue(game.playAgain());
@@ -32,8 +32,8 @@ public class GameTest {
 
     @Test
     void loserGoesFirstInNextGame() {
-        Player player1 = new Player('X', "Joe");
-        Player player2 = new Player('O', "Jane");
+        Player player1 = new HumanPlayer('X', "Joe");
+        Player player2 = new HumanPlayer('O', "Jane");
         Scanner in = new Scanner("Y");
         Game game = new Game(in, player1, player2);
         game.setToEndingPlayer(player1);
@@ -42,8 +42,8 @@ public class GameTest {
 
     @Test
     void addsWinToCorrectUser() {
-        Player player1 = new Player('X', "Joe");
-        Player player2 = new Player('O', "Jane");
+        Player player1 = new HumanPlayer('X', "Joe");
+        Player player2 = new HumanPlayer('O', "Jane");
         Scanner in = new Scanner("Y");
         Game game = new Game(in, player1, player2);
         game.addWinToUserOf(player1);

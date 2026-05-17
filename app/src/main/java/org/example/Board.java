@@ -24,7 +24,6 @@ public class Board {
     public void setBoardCell(int row, int column, char symbol) {
         this.board[row][column] = symbol;
     }
-        
 
     public boolean hasWinner(char symbol) {
         for(int i = 0; i < 3; i++) {
@@ -46,7 +45,18 @@ public class Board {
         return false;
     }
 
-        
+    //I don't like that O and X are hardcoded, but left it in
+    public boolean isEmpty() {
+        for(int i = 0; i < 3; i++) {
+            for(int j = 0; j < 3; j++) {
+                if(getBoardCell(i, j) == 'X' || getBoardCell(i, j) == 'O') {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
     public boolean hasTie(char player1Symbol, char player2Symbol) {
       for(int i = 0; i < 3; i++) {
         for(int j = 0; j < 3; j++) {
@@ -58,7 +68,6 @@ public class Board {
       return true;
     }
     
-
     public boolean isValidMove(String userInput) {
         switch(userInput) {
             case "1":
@@ -87,5 +96,17 @@ public class Board {
     public void clear() {
         this.board = new char[][] {{'1', '2', '3'},
                                    {'4', '5', '6'},
-                                   {'7', '8', '9'}};}
+                                   {'7', '8', '9'}};
+    }
+
+    //Made this so the RobotPlayer could create a virtual board to test wins against without mutating the real board
+    public Board copy() {
+        Board copiedBoard = new Board();
+        for(int i = 0; i < 3; i++) {
+            for(int j = 0; j < 3; j++) {
+                copiedBoard.board[i][j] = getBoardCell(i, j);
+            }
+        }
+        return copiedBoard;
+    }
 }

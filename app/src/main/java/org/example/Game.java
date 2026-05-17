@@ -16,6 +16,8 @@ public class Game {
       this.in = in;
       this.player1 = player1;
       this.player2 = player2;
+      player1.setOpponent(player2);
+      player2.setOpponent(player1);
       startingPlayer = player1;
       endingPlayer = player2;
     }
@@ -43,7 +45,7 @@ public class Game {
           break;
         }
 
-        if(board.hasTie(startingPlayer.getPlayerSymbol(), endingPlayer.getPlayerSymbol())) {   //I put the tie check here because startingPlayer always goes last in a tie.
+        if(board.hasTie(startingPlayer.getPlayerSymbol(), endingPlayer.getPlayerSymbol())) {//I put the tie check here because startingPlayer always goes last in a tie.
             System.out.println("            It's a tie!");
             tieCount++;
             break;

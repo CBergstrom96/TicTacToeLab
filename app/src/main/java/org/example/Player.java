@@ -2,12 +2,14 @@ package org.example;
 
 import java.util.Scanner;
 
-public abstract class Player { //I abstracted this class because the only difference between a human and robot player is the getNextMove function.
+//I abstracted this class because the only difference between a human and robot player is the getNextMove function.
+public abstract class Player {
 
     private final char playerSymbol;
     private String name;
     private int winCount;
     private boolean wonGame;
+    private Player opponent; //I gave each player an opponent so I could grab their playerSymbol in RobotPlayer.DenyOpponent()
     
     public Player(char playerSymbol, String name) {
         this.playerSymbol = playerSymbol;
@@ -38,6 +40,14 @@ public abstract class Player { //I abstracted this class because the only differ
 
     public void resetWinBoolean() { //Resets the boolean so it can be used next game
         this.wonGame = false;
+    }
+
+    public Player getOpponent() {
+        return this.opponent;
+    }
+
+    public void setOpponent(Player player) {
+        this.opponent = player;
     }
 
     public abstract void getNextMove(Board board, Scanner in);
